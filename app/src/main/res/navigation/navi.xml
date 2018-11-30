@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/navi"
+	app:startDestination="@id/topFragment">
+
+	<navigation android:id="@+id/navigation"
+		app:startDestination="@id/mainFragment">
+		<fragment
+			android:id="@+id/subFragment"
+			android:name="jp.gr.java_conf.mitchibu.myapplication.ui.sub.SubFragment"
+			android:label="sub_fragment"
+			tools:layout="@layout/sub_fragment"/>
+		<fragment
+			android:id="@+id/mainFragment"
+			android:name="jp.gr.java_conf.mitchibu.myapplication.ui.main.MainFragment"
+			android:label="main_fragment"
+			tools:layout="@layout/main_fragment">
+			<action
+				android:id="@+id/action_mainFragment_to_subFragment"
+				app:destination="@id/subFragment"
+				app:enterAnim="@anim/slide_enter"
+				app:exitAnim="@anim/slide_exit"
+				app:popEnterAnim="@anim/slide_pop_enter"
+				app:popExitAnim="@anim/slide_pop_exit" />
+		</fragment>
+		<action
+			android:id="@+id/action_global_endFragment"
+			app:destination="@id/endFragment"
+			app:enterAnim="@anim/slide_enter"
+			app:exitAnim="@anim/slide_exit"
+			app:popEnterAnim="@anim/slide_pop_enter"
+			app:popExitAnim="@anim/slide_pop_exit" />
+	</navigation>
+	<fragment
+		android:id="@+id/topFragment"
+		android:name="jp.gr.java_conf.mitchibu.myapplication.ui.top.TopFragment"
+		android:label="top_fragment"
+		tools:layout="@layout/top_fragment" >
+		<action
+			android:id="@+id/action_topFragment_to_navigation"
+			app:destination="@id/navigation"
+			app:enterAnim="@anim/slide_enter"
+			app:exitAnim="@anim/slide_exit"
+			app:popEnterAnim="@anim/slide_pop_enter"
+			app:popExitAnim="@anim/slide_pop_exit" />
+	</fragment>
+	<fragment
+		android:id="@+id/endFragment"
+		android:name="jp.gr.java_conf.mitchibu.myapplication.ui.end.EndFragment"
+		android:label="end_fragment"
+		tools:layout="@layout/end_fragment" />
+</navigation>
